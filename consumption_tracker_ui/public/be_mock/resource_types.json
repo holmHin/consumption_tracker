@@ -1,0 +1,17 @@
+[
+  {
+    "id"  : 1,
+    "Type": "Power",
+    "Unit": "MW/h"
+  },
+  {
+    "id"  : 2,
+    "Type": "Water",
+    "Unit": "cbm"
+  },
+  {
+    "id"  : 3,
+    "Type": "Gas",
+    "Unit": "cbm"
+  }
+]

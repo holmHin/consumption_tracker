@@ -1,0 +1,47 @@
+<Card>
+    <template #title>
+        Store new record
+    </template>
+    <template #content>
+              <div class="field grid">
+            <div class="col-1">
+                <label
+                        class="theme_font_color" for="resourceType">Resource</label>
+            </div>
+            <div class="col-2">
+                <Dropdown :filter="true" id="resourceType" v-model="selectedResourceType" :options="typeList"
+                          optionLabel="Name"
+                          @change="updateOnSelect" placeholder="Select a resource Type"/>
+            </div>
+        </div>
+        <div class="field grid">
+            <div class="col-1">
+                <label class="theme_font_color " for="recordDate">Date</label>
+            </div>
+            <div class="col-4">
+                <Calendar id="recordDate" v-model="recordDate" dateFormat="dd.mm.yy" :showIcon="true"/>
+            </div>
+
+        </div>
+        <div class="field grid">
+            <div class="col-1">
+                <label class="theme_font_color " for="resourceState">Current Value</label>
+            </div>
+            <div class="col-2">
+                <InputNumber id="resourceState" v-model="resourceValueInput" v-bind:suffix="unit"/>
+            </div>
+
+        </div>
+        <div class="field grid">
+            <div class="col-2">
+
+            </div>
+            <div class="col-2">
+                <Button @click="storeValue" label="Add Entry"/>
+            </div>
+        </div>
+        <Message v-for="msg of messages" :severity="msg.severity" :key="msg.id">{{ msg.content }}</Message>
+
+    </template>
+
+</Card>
