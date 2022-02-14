@@ -12,19 +12,19 @@ export default class Capture extends Vue {
     recordDate: Date = new Date();
     unit = "";
     messages: any[];
+    enableConsumptionEntry:boolean;
+    valueFraction = 0;
+
 
     async created() {
         this.messages = []
-        this.selectedResourceType = new class implements ResourceType {
-            id: number;
-            name: string;
-            unitOfMeasure = "Unit";
-        }
+        this.enableConsumptionEntry=false;
+        this.resourceValueInput=0
         const rtService = new ResourceTypeService();
         this.types = await rtService.getAllResourceTypes();
         const tmpTypeList: any[] = [];
         this.types.forEach(type => {
-            tmpTypeList.push({Name: type.name, Unit: " " + type.unitOfMeasure})
+            tmpTypeList.push({id: type.id, name: type.name, unit: " " + type.unitOfMeasure, fraction: type.fraction})
         })
         this.typeList = tmpTypeList;
 
@@ -32,24 +32,21 @@ export default class Capture extends Vue {
 
 
     updateOnSelect() {
-        this.unit = this.selectedResourceType.Unit;
+        this.unit = this.selectedResourceType.unit;
+        this.resourceValueInput=0
+        this.valueFraction=this.selectedResourceType.fraction;
+        this.enableConsumptionEntry=true;
         this.messages = [
-            {severity: 'info', content: 'Last recorded value for '+this.selectedResourceType.Name+' was 2462 kwh on 22.12.2021', id: 1}]
+            {severity: 'info', content: 'Last recorded value for '+this.selectedResourceType.name+' was 2462 kwh on 22.12.2021', id: 1}]
     }
 
     storeValue() {
         let tmpvalue;
         try {
-            tmpvalue = new class implements ResourceValue {
-                resourceType: ResourceType = new class implements ResourceType {
-                    id = 1;
-                    name = "";
-                    unitOfMeasure = "";
-                };
-                value = 0;
+        console.log("Record new Entry")
 
-            }
-            tmpvalue.value = this.resourceValueInput;
+
+
         } catch (e) {
             console.log("")
         }

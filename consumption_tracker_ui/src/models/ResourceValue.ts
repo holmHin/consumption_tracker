@@ -4,5 +4,6 @@ export interface ResourceValue {
 
     value: number;
     resourceType: ResourceType;
+    date: Date;
 
 }

@@ -2,16 +2,19 @@
   {
     "id"  : 1,
     "Type": "Power",
-    "Unit": "MW/h"
+    "Unit": "MW/h",
+    "fraction"  : 2
   },
   {
     "id"  : 2,
     "Type": "Water",
-    "Unit": "cbm"
+    "Unit": "cbm",
+    "fraction"  : 5
   },
   {
     "id"  : 3,
     "Type": "Gas",
-    "Unit": "cbm"
+    "Unit": "cbm",
+    "fraction"  : 0
   }
 ]

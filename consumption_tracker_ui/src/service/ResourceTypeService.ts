@@ -18,6 +18,7 @@ export class ResourceTypeService {
 
         const type:ResourceType[] = results.map((result: any) => {
             return new class implements ResourceType {
+                fraction= result.fraction;
                 id= result.id;
                 name = result.Type;
                 unitOfMeasure = result.Unit;

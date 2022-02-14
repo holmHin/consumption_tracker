@@ -3,44 +3,55 @@
         Store new record
     </template>
     <template #content>
-              <div class="field grid">
-            <div class="col-1">
-                <label
-                        class="theme_font_color" for="resourceType">Resource</label>
-            </div>
-            <div class="col-2">
-                <Dropdown :filter="true" id="resourceType" v-model="selectedResourceType" :options="typeList"
-                          optionLabel="Name"
+
+
+        <div class="formgrid grid">
+            <div class="field col">
+                <label class="theme_font_color" for="resourceType">Resource</label>
+                <Dropdown :filter="true" class="inputfield w-full" id="resourceType" v-model="selectedResourceType"
+                          :options="typeList"
+                          optionLabel="name"
                           @change="updateOnSelect" placeholder="Select a resource Type"/>
+
+            </div>
+            <div class="field col">
             </div>
         </div>
-        <div class="field grid">
-            <div class="col-1">
+        <div class="formgrid grid">
+            <div class="field col">
                 <label class="theme_font_color " for="recordDate">Date</label>
-            </div>
-            <div class="col-4">
-                <Calendar id="recordDate" v-model="recordDate" dateFormat="dd.mm.yy" :showIcon="true"/>
-            </div>
 
+                <Calendar id="recordDate" class="inputfield w-full" v-model="recordDate" dateFormat="dd.mm.yy"
+                          :showIcon="true"/>
+
+            </div>
+            <div class="field col">
+            </div>
         </div>
-        <div class="field grid">
-            <div class="col-1">
+        <div class="formgrid grid">
+            <div class="field col">
                 <label class="theme_font_color " for="resourceState">Current Value</label>
-            </div>
-            <div class="col-2">
-                <InputNumber id="resourceState" v-model="resourceValueInput" v-bind:suffix="unit"/>
-            </div>
 
+                <InputNumber :disabled="!enableConsumptionEntry" class="inputfield w-full" id="resourceState"
+                             mode="decimal" v-bind:minFractionDigits="valueFraction" v-model="resourceValueInput" v-bind:suffix="unit"/>
+
+            </div>
+            <div class="field col">
+            </div>
         </div>
-        <div class="field grid">
-            <div class="col-2">
-
-            </div>
-            <div class="col-2">
+        <div class="formgrid grid">
+            <div class="field col">
                 <Button @click="storeValue" label="Add Entry"/>
             </div>
+            <div class="field col">
+            </div>
         </div>
-        <Message v-for="msg of messages" :severity="msg.severity" :key="msg.id">{{ msg.content }}</Message>
+        <div class="formgrid grid">
+            <div class="field col">
+                <Message v-for="msg of messages" :severity="msg.severity" :key="msg.id">{{ msg.content }}</Message>
+            </div>
+        </div>
+
 
     </template>
 
