@@ -1,25 +1,28 @@
 import {Vue} from "vue-class-component";
-import {ResourceValue} from "@/models/ResourceValue";
+import {ConsumptionValue} from "@/models/ConsumptionValue";
 import {ResourceType} from "@/models/ResourceType";
 import {ResourceTypeService} from "@/service/ResourceTypeService";
 
 
 export default class Capture extends Vue {
-    resourceValueInput = 0;
     selectedResourceType: any;
     types: ResourceType[];
     typeList: any[] = [];
-    recordDate: Date = new Date();
     unit = "";
     messages: any[];
     enableConsumptionEntry:boolean;
     valueFraction = 0;
+    consumptionValue: ConsumptionValue;
 
 
     async created() {
+        this.consumptionValue = new class implements ConsumptionValue {
+            date= new Date();
+            resourceType: ResourceType;
+            value = 0;
+        }
         this.messages = []
         this.enableConsumptionEntry=false;
-        this.resourceValueInput=0
         const rtService = new ResourceTypeService();
         this.types = await rtService.getAllResourceTypes();
         const tmpTypeList: any[] = [];
@@ -33,7 +36,7 @@ export default class Capture extends Vue {
 
     updateOnSelect() {
         this.unit = this.selectedResourceType.unit;
-        this.resourceValueInput=0
+        this.consumptionValue.value=0
         this.valueFraction=this.selectedResourceType.fraction;
         this.enableConsumptionEntry=true;
         this.messages = [
@@ -43,9 +46,6 @@ export default class Capture extends Vue {
     storeValue() {
         let tmpvalue;
         try {
-        console.log("Record new Entry")
-
-
 
         } catch (e) {
             console.log("")

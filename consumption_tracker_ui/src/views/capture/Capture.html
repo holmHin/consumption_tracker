@@ -21,7 +21,7 @@
             <div class="field col">
                 <label class="theme_font_color " for="recordDate">Date</label>
 
-                <Calendar id="recordDate" class="inputfield w-full" v-model="recordDate" dateFormat="dd.mm.yy"
+                <Calendar id="recordDate" class="inputfield w-full" v-model="consumptionValue.date" dateFormat="dd.mm.yy"
                           :showIcon="true"/>
 
             </div>
@@ -33,7 +33,7 @@
                 <label class="theme_font_color " for="resourceState">Current Value</label>
 
                 <InputNumber :disabled="!enableConsumptionEntry" class="inputfield w-full" id="resourceState"
-                             mode="decimal" v-bind:minFractionDigits="valueFraction" v-model="resourceValueInput" v-bind:suffix="unit"/>
+                             mode="decimal" v-bind:minFractionDigits="valueFraction" v-model="consumptionValue.value" v-bind:suffix="unit"/>
 
             </div>
             <div class="field col">

@@ -1,6 +1,6 @@
 import {ResourceType} from "@/models/ResourceType";
 
-export interface ResourceValue {
+export interface ConsumptionValue {
 
     value: number;
     resourceType: ResourceType;
