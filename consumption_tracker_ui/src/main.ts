@@ -11,11 +11,13 @@ import Calendar from 'primevue/calendar';
 import Card from 'primevue/card';
 import Message from 'primevue/message';
 import ToastService from 'primevue/toastservice';
+import Toast from "primevue/toast";
 
 
 const app = createApp(App);
 
 app.use(router).use(PrimeVue);
+app.use(ToastService);
 
 app.component("TabMenu", TabMenu);
 app.component("Dropdown", Dropdown);
@@ -24,6 +26,6 @@ app.component('Button', Button);
 app.component("Calendar", Calendar);
 app.component("Card", Card);
 app.component("Message", Message);
-app.component("ToastService", ToastService);
+app.component("Toast", Toast);
 
 app.mount("#app");

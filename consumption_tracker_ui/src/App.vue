@@ -1,5 +1,7 @@
+
 <script lang="ts" src="./app.ts"></script>
 <template>
+  <Toast position="bottom-right" group="br" />
   <div id="app">
     <TabMenu :model="items" />
     <router-view />
