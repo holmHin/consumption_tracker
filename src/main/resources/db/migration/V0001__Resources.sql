@@ -5,6 +5,6 @@ CREATE TABLE resources
     unit     varchar                  NOT NULL,
     fraction integer                  NOT NULL,
     created  timestamp with time zone NOT NULL DEFAULT now(),
-        CONSTRAINT type_pk PRIMARY KEY (id),
+    CONSTRAINT type_pk PRIMARY KEY (id),
     CONSTRAINT type_name UNIQUE (name)
 );

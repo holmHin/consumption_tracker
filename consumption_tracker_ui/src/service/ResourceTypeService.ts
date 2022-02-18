@@ -6,8 +6,9 @@ export class ResourceTypeService {
 
 
     public async getAllResourceTypes():Promise<ResourceType[]>{
-        let rawData: any;
-        const response = await axios.get("/be_mock/resource_types.json");
+        const url= process.env.VUE_APP_BACKEND+"resources";
+        console.log(url);
+        const response = await axios.get(url);
         const results = response.data;
         console.log(results)
         return this.mapResponseToTypeObject(results);
