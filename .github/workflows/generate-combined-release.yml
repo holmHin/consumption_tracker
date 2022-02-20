@@ -34,7 +34,7 @@ jobs:
       - name: Copy ui to package
         run: |
             cp -r consumption_tracker_ui/dist/ src/main/resources/public
-            cd target/classes/public
+            cd src/main/resources/public
             ls -l
 
       - name: Set up JDK 17
