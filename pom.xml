@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>de.holm</groupId>
 	<artifactId>consumptionTracker</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<name>consumptionTracker</name>
 	<description>The consumption Tracker backend </description>
 	<properties>
