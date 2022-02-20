@@ -1,6 +1,8 @@
 package de.holm.consumptionTracker.jpa;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -9,11 +11,17 @@ import java.util.Date;
 public class Consumptions {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int resource;
+    private int resourceId;
     private double value;
+    private String unit;
     private Date date;
     private LocalDateTime created;
+
+    public String getUnit() {return unit;}
+
+    public void setUnit(String unit) {this.unit = unit;}
 
     public int getId() {
         return id;
@@ -23,12 +31,12 @@ public class Consumptions {
         this.id = id;
     }
 
-    public int getResource() {
-        return resource;
+    public int getResourceId() {
+        return resourceId;
     }
 
-    public void setResource(int resource) {
-        this.resource = resource;
+    public void setResourceId(int resource) {
+        this.resourceId = resource;
     }
 
     public double getValue() {

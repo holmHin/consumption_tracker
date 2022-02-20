@@ -6,7 +6,7 @@ import {ConsuptionValueService} from "@/service/ConsuptionValueService";
 
 
 export default class Capture extends Vue {
-    selectedResourceType: any;
+    selectedResourceType: any = null;
     types: ResourceType[];
     typeList: any[] = [];
     unit = "";
@@ -18,8 +18,9 @@ export default class Capture extends Vue {
 
     async created() {
         this.consumptionValue = new class implements ConsumptionValue {
+            unit: string;
             date = new Date();
-            resourceType: ResourceType;
+            resourceId: number;
             value = 0;
         }
         this.messages = []
@@ -37,10 +38,11 @@ export default class Capture extends Vue {
 
     updateOnSelect() {
         this.unit = this.selectedResourceType.unit;
+        this.consumptionValue.unit = this.selectedResourceType.unit;
         this.consumptionValue.value = 0
         this.valueFraction = this.selectedResourceType.fraction;
         this.enableConsumptionEntry = true;
-        this.consumptionValue.resourceType = this.selectedResourceType.obj;
+        this.consumptionValue.resourceId = this.selectedResourceType.id;
         this.messages = [
             {
                 severity: 'info',
@@ -49,12 +51,13 @@ export default class Capture extends Vue {
             }]
     }
 
-    storeValue() {
+    async storeValue() {
 
         try {
 
-            const cvService = new ConsuptionValueService().storeNewValue(this.consumptionValue);
-            if (cvService.succsess) {
+            const cvService = await new ConsuptionValueService().storeNewValue(this.consumptionValue);
+            if (cvService.succsess==true) {
+                this.clearValues()
                 this.$toast.add({
                     severity: 'success',
                     summary: 'Successfully added',
@@ -73,6 +76,19 @@ export default class Capture extends Vue {
             });
         }
 
+    }
+
+
+    clearValues(){
+        this.enableConsumptionEntry = false;
+        this.consumptionValue.value = 0;
+        this.selectedResourceType = null;
+        const resourceTypeDropDown = document.getElementById('resourceType');
+        if(resourceTypeDropDown!= null)
+            { resourceTypeDropDown.focus()}
+        console.log("Empty")
+
+        
     }
 
 

@@ -6,11 +6,9 @@ export class ResourceTypeService {
 
 
     public async getAllResourceTypes():Promise<ResourceType[]>{
-        const url= process.env.VUE_APP_BACKEND+"resources";
-        console.log(url);
+        const url= process.env.VUE_APP_BACKEND+"api/resources";
         const response = await axios.get(url);
         const results = response.data;
-        console.log(results)
         return this.mapResponseToTypeObject(results);
 
     }
@@ -21,8 +19,8 @@ export class ResourceTypeService {
             return new class implements ResourceType {
                 fraction= result.fraction;
                 id= result.id;
-                name = result.Type;
-                unitOfMeasure = result.Unit;
+                name = result.name;
+                unitOfMeasure = result.unit;
             }
         });
 

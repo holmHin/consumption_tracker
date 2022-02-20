@@ -12,6 +12,7 @@
                 <Dropdown :filter="true" class="inputfield w-full" id="resourceType" v-model="selectedResourceType"
                           :options="typeList"
                           optionLabel="name"
+                          ref="resourceType"
                           @change="updateOnSelect" placeholder="Select a resource Type"/>
 
             </div>
@@ -34,7 +35,7 @@
                 <label class="theme_font_color " for="resourceState">Current Value</label>
 
                 <InputNumber :disabled="!enableConsumptionEntry" class="inputfield w-full" id="resourceState"
-                             mode="decimal" v-bind:minFractionDigits="valueFraction" v-model="consumptionValue.value" v-bind:suffix="unit"/>
+                              v-bind:minFractionDigits="valueFraction" v-bind:maxFractionDigits="valueFraction" v-model="consumptionValue.value" v-bind:suffix="unit"/>
 
             </div>
             <div class="field col">
