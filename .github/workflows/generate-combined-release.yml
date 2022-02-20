@@ -33,7 +33,7 @@ jobs:
 
       - name: Copy ui to package
         run: |
-            cp -r consumption_tracker_ui/dist/ target/classes/public
+            cp -r consumption_tracker_ui/dist/ src/main/resources/public
             cd target/classes/public
             ls -l
 
