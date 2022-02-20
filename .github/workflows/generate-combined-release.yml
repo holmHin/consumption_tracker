@@ -23,7 +23,7 @@ jobs:
           node-version: 16
 
       - name: Build Frontend
-      - run: |
+        run: |
           cd consumption_tracker_ui
           npm run build
 
