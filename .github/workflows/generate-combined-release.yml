@@ -55,7 +55,12 @@ jobs:
             mv ${JAR_FILE} consumptionTracker_dockerBuild.jar
 
       - name: Creat Docker and push
-        run: docker build . --file Dockerfile --tag consumtion_tracker:latest --tag consumtion_tracker:0.1.0
+        run: |
+            docker build . --file Dockerfile --tag hohin/consumtion_tracker:latest --tag hohin/consumtion_tracker:0.1.0
+            docker login -u  ${{ secrets.DOCKER_USER }} -p  ${{ secrets.DOCKER_TOKEN}}
+            docker push hohin/consumtion_tracker --all-tags
+
+
 
 
 
