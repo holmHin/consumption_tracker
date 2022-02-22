@@ -82,7 +82,6 @@ export default class Capture extends Vue {
     clearValues(){
         this.enableConsumptionEntry = false;
         this.consumptionValue.value = 0;
-        this.selectedResourceType = null;
         const resourceTypeDropDown = document.getElementById('resourceType');
         if(resourceTypeDropDown!= null)
             { resourceTypeDropDown.focus()}

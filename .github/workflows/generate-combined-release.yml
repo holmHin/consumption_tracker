@@ -48,7 +48,17 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml -DskipTests
 
-      - name: Publish to GitHub Packages Apache Maven
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml -DskipTests
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: prepare Docker Build
+        run: |
+            cd target
+            JAR_FILE=`ls consumptionTracker-*.jar`
+            mv ${JAR_FILE} consumptionTracker_dockerBuild.jar
+
+      - name: Creat Docker and push
+        run: docker build . --file Dockerfile --tag consumtion_tracker:latest --tag consumtion_tracker:0.1.0
+
+
+
+
+
+
