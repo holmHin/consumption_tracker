@@ -7,12 +7,12 @@
         <p>The following Resources are registered:</p>
         <Button icon="pi pi-plus" @click="openNewResourceDialog" />
 
-        <Button :disabled="false" icon="pi pi-trash" class="p-button-danger" @click="deleteSelectedResources" />
+        <Button :disabled="!showDeleteResource" icon="pi pi-trash" class="p-button-danger" @click="deleteSelectedResources" />
 
-        <DataTable :value="resources" v-model:selection="selectedResources" dataKey="id" class="p-datatable-sm" responsiveLayout="scroll">
-            <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
+        <DataTable @row-select="onResourceSelected"  :value="resources" v-model:selection="selectedResources" dataKey="id" class="p-datatable-sm" responsiveLayout="scroll">
+            <Column selectionMode="single" headerStyle="width: 3em"></Column>
             <Column field="name" header="Name" :sortable="true"></Column>
-            <Column field="unitOfMeasure" header="Unit" :sortable="true"></Column>
+            <Column field="unit" header="Unit" :sortable="true"></Column>
             <Column field="fraction" header="Fraction"></Column>
             <Column field="incremental" header="Incremental"></Column>
         </DataTable>

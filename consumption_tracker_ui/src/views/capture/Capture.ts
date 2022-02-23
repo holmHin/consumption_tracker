@@ -63,7 +63,7 @@ export default class Capture extends Vue {
                     summary: 'Successfully added',
                     detail: 'New record for ' + this.selectedResourceType.name + ' stored!',
                     group: 'br',
-                    life: 3000
+                    life: 5000
                 });
             }
         } catch (e) {

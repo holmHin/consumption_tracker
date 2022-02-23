@@ -45,6 +45,12 @@ export class ResourceTypeService {
         return responsePattern;
     }
 
+    public async deleteResourceType(resource:any){
+        const url= process.env.VUE_APP_BACKEND+"api/resources/delete";
+        const response = await axios.post(url, resource);
+        const data = response.data;
+    }
+
 
 
 

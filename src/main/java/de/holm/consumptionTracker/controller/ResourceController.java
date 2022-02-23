@@ -47,5 +47,11 @@ public class ResourceController {
         return repository.save(newResource);
     }
 
+    @PostMapping("/delete")
+    public void deleteResource(@RequestBody Resources deleteResource){
+        log.info("Delete Entry {}", deleteResource.getId());
+        repository.delete(deleteResource);
+    }
+
 
 }
