@@ -12,6 +12,11 @@ import Card from 'primevue/card';
 import Message from 'primevue/message';
 import ToastService from 'primevue/toastservice';
 import Toast from "primevue/toast";
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import Dialog from 'primevue/dialog';
+import InputText from 'primevue/inputtext';
+import InputSwitch from 'primevue/inputswitch';
 
 
 const app = createApp(App);
@@ -27,5 +32,10 @@ app.component("Calendar", Calendar);
 app.component("Card", Card);
 app.component("Message", Message);
 app.component("Toast", Toast);
+app.component("DataTable", DataTable);
+app.component("Column", Column);
+app.component("Dialog", Dialog);
+app.component("InputText", InputText);
+app.component("InputSwitch", InputSwitch);
 
 app.mount("#app");

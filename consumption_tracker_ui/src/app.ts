@@ -8,6 +8,6 @@ export default class App extends Vue {
     public items = [
         {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
         {label: 'Capture', icon: 'pi pi-sliders-h', to: '/capture/'},
-        {label: 'About', icon: 'pi pi-fw pi-info', to: '/about/'}
+        {label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/settings/'}
     ];
 }

@@ -1,6 +1,7 @@
 import axios, {AxiosResponse} from "axios";
 import {ResourceType} from "@/models/ResourceType";
 import {types} from "sass";
+import {ResponsePattern} from "@/models/ResponsePattern";
 
 export class ResourceTypeService {
 
@@ -17,15 +18,31 @@ export class ResourceTypeService {
 
         const type:ResourceType[] = results.map((result: any) => {
             return new class implements ResourceType {
+                incremental= result.incremental;
                 fraction= result.fraction;
                 id= result.id;
                 name = result.name;
-                unitOfMeasure = result.unit;
+                unit = result.unit;
             }
         });
 
         return type;
 
+    }
+
+    public async saveNewResourceType(resourceType:ResourceType):Promise<ResponsePattern>{
+        const url= process.env.VUE_APP_BACKEND+"api/resources";
+        const response = await axios.post(url, resourceType);
+        const responsePattern: ResponsePattern = new class implements ResponsePattern {
+            message: string;
+            succsess= false;
+        }
+        if(response.data.id > 0 && response.data.name == resourceType.name){
+            responsePattern.succsess = true;
+            responsePattern.message ="Successfully stored new Resource"
+        }
+
+        return responsePattern;
     }
 
 

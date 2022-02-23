@@ -49,11 +49,20 @@ public class Resources {
         this.created = created;
     }
 
+    public boolean isIncremental() {
+        return incremental;
+    }
+
+    public void setIncremental(boolean incremental) {
+        this.incremental = incremental;
+    }
+
     @Id
     private int id;
     private String name;
     private String unit;
     private int fraction;
+    private boolean incremental;
     private LocalDateTime created;
 
     public Resources(){}

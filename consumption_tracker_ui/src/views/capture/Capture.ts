@@ -29,7 +29,7 @@ export default class Capture extends Vue {
         this.types = await rtService.getAllResourceTypes();
         const tmpTypeList: any[] = [];
         this.types.forEach(type => {
-            tmpTypeList.push({id: type.id, name: type.name, unit: " " + type.unitOfMeasure, fraction: type.fraction})
+            tmpTypeList.push({id: type.id, name: type.name, unit: " " + type.unit, fraction: type.fraction})
         })
         this.typeList = tmpTypeList;
 

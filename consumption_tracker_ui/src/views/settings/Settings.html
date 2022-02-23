@@ -1,0 +1,73 @@
+<Card>
+    <template #title>
+        Settings
+    </template>
+    <template #content>
+        <h2>Resources</h2>
+        <p>The following Resources are registered:</p>
+        <Button icon="pi pi-plus" @click="openNewResourceDialog" />
+
+        <Button :disabled="false" icon="pi pi-trash" class="p-button-danger" @click="deleteSelectedResources" />
+
+        <DataTable :value="resources" v-model:selection="selectedResources" dataKey="id" class="p-datatable-sm" responsiveLayout="scroll">
+            <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
+            <Column field="name" header="Name" :sortable="true"></Column>
+            <Column field="unitOfMeasure" header="Unit" :sortable="true"></Column>
+            <Column field="fraction" header="Fraction"></Column>
+            <Column field="incremental" header="Incremental"></Column>
+        </DataTable>
+
+    </template>
+
+
+
+</Card>
+
+<Dialog v-model:visible="showNewResourceDialog" :modal="true">
+    <template #header>
+        <h3>Add new Resource</h3>
+    </template>
+
+    <div class="formgrid grid">
+        <div class="field col">
+            <label class="theme_font_color" for="resourceName">Name</label>
+
+            <InputText id="resourceName" type="text" v-model="newResourceType.name" />
+
+        </div>
+        <div class="field col">
+        </div>
+    </div>
+    <div class="formgrid grid">
+        <div class="field col">
+            <label class="theme_font_color" for="resourceUnit">Unit</label><br>
+
+            <InputText id="resourceUnit" type="text" v-model="newResourceType.unit" style="width: 50%" />
+
+        </div>
+        <div class="field col">
+        </div>
+    </div>
+    <div class="formgrid grid">
+        <div class="field col">
+            <label class="theme_font_color" for="resourceFraction">Decimal places</label><br>
+            <InputNumber id="resourceFraction" v-model="newResourceType.fraction" mode="decimal" :min="0" :max="5" style="width: 50%"/>
+
+        </div>
+        <div class="field col">
+        </div>
+    </div>
+    <div class="formgrid grid">
+        <div class="field col">
+            <label class="theme_font_color" for="resourceIncremental">Incremental</label><br>
+            <InputSwitch v-model="newResourceType.incremental" />
+
+        </div>
+        <div class="field col">
+        </div>
+    </div>
+
+    <template #footer>
+        <Button @click="saveNewResourceType" label="Save" icon="pi pi-check" autofocus />
+    </template>
+</Dialog>
