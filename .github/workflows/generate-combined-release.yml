@@ -66,13 +66,13 @@ jobs:
         run: |
           ls -la
           cd ./docker/x86
-          docker build . --file Dockerfile --tag hohin/consumtion_tracker:latest --tag hohin/consumtion_tracker:0.1.0
+          docker build . --file Dockerfile --tag hohin/consumtion_tracker:latest --tag hohin/consumtion_tracker:0.2.0
           docker push hohin/consumtion_tracker --all-tags
 
       - name: Build Docker image for ARM architecture and push to Docker Hub
         run: |
           cd ./docker/arm
-          docker build . --file Dockerfile --tag hohin/consumtion_tracker:arm_latest --tag hohin/consumtion_tracker:arm_0.1.0
+          docker build . --file Dockerfile --tag hohin/consumtion_tracker:arm_latest --tag hohin/consumtion_tracker:arm_0.2.0
           docker push hohin/consumtion_tracker --all-tags
 
 

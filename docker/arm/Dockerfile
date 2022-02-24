@@ -1,3 +1,3 @@
-FROM arm64v8/openjdk:17.0.2-jdk-slim-buster
+FROM azul/zulu-openjdk:17.0.2
 COPY consumptionTracker_dockerBuild.jar /opt
 ENTRYPOINT java -jar /opt/consumptionTracker_dockerBuild.jar
