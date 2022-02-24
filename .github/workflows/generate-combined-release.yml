@@ -64,13 +64,14 @@ jobs:
 
       - name: Build Docker image for x86 architecture and push to Docker Hub
         run: |
-          cd .github/docker/arm/
+          ls -l
+          cd .github/docker/x86
           docker build ./.github/docker/x86/ --file Dockerfile --tag hohin/consumtion_tracker:latest --tag hohin/consumtion_tracker:0.1.0
           docker push hohin/consumtion_tracker --all-tags
 
       - name: Build Docker image for ARM architecture and push to Docker Hub
         run: |
-          cd .github/docker/arm/
+          cd .github/docker/arm
           docker build . --file Dockerfile --tag hohin/consumtion_tracker:arm_latest --tag hohin/consumtion_tracker:arm_0.1.0
           docker push hohin/consumtion_tracker --all-tags
 
