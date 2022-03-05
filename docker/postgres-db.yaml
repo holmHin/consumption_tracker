@@ -4,12 +4,12 @@ services:
 
   db:
     image: postgres
-    container_name: rc_tracker_db
+    container_name: consumptions_db
     ports:
       - 5432:5432
     environment:
-      POSTGRES_PASSWORD: password
-      POSTGRES_USER: rc_tracker
-      POSTGRES_DB: rc_tracker
+      POSTGRES_PASSWORD: consumptions
+      POSTGRES_USER: consumptions
+      POSTGRES_DB: consumptions
 
 
