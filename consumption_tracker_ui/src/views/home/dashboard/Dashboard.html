@@ -1,6 +1,6 @@
 <Card>
     <template #title>
-
+    Overview
     </template>
     <template #content>
         <div v-if="!dashboardLoaded">
@@ -22,7 +22,7 @@
                         <span class="dashboard_info_text">Captured on: {{ formatDate(dashboard.date) }}</span>
                     </template>
                     <template #footer>
-                        <Button icon="pi pi-chart-bar" label="Details"/>
+                        <Button @click="showDetailsOfResource" icon="pi pi-chart-bar" label="Details"/>
 
                     </template>
                 </Card>

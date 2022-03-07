@@ -25,6 +25,10 @@ export default class Dashboard extends Vue {
         return moment(date).format("ll")
     }
 
+    showDetailsOfResource(resourceId:number){
+        this.$emit("showDetailsOfResource", resourceId)
+    }
+
 }
 
 

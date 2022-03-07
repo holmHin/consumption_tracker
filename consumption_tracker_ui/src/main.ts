@@ -20,6 +20,7 @@ import InputSwitch from 'primevue/inputswitch';
 import ProgressBar from 'primevue/progressbar';
 
 
+
 const app = createApp(App);
 
 app.use(router).use(PrimeVue);

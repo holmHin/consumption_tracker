@@ -1,10 +1,16 @@
+
 <script type="ts">
-import Dashboard from "@/views/home/dashboard/Dashboard.html";
-export default {
-  components: {Dashboard}
+
+import Component from "vue-class-component";
+
+@Component
+export default class home {
+
 }
+
 </script>
 <template>
-  <Dashboard />
+  <Dashboard /><br/>
+  <Details />
 </template>
 <style lang="scss" src="./home.scss"></style>
