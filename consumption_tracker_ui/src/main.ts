@@ -17,12 +17,14 @@ import Column from 'primevue/column';
 import Dialog from 'primevue/dialog';
 import InputText from 'primevue/inputtext';
 import InputSwitch from 'primevue/inputswitch';
+import ProgressBar from 'primevue/progressbar';
 
 
 const app = createApp(App);
 
 app.use(router).use(PrimeVue);
 app.use(ToastService);
+
 
 app.component("TabMenu", TabMenu);
 app.component("Dropdown", Dropdown);
@@ -37,5 +39,7 @@ app.component("Column", Column);
 app.component("Dialog", Dialog);
 app.component("InputText", InputText);
 app.component("InputSwitch", InputSwitch);
+app.component("ProgressBar", ProgressBar);
+
 
 app.mount("#app");

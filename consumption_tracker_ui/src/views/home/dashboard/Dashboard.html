@@ -1,22 +1,25 @@
 <Card>
     <template #title>
-        Welcome to the Consumption Tracking App!
+
     </template>
     <template #content>
-        <div class="flex flex-wrap-reverse md:flex-wrap card-container fadein animation-duration-1000
+        <div v-if="!dashboardLoaded">
+            <ProgressBar mode="indeterminate" style="height: .2em" />
+        </div>
+        <div v-if="dashboardLoaded" class="flex flex-wrap-reverse md:flex-wrap card-container fadein animation-duration-1000
         animation-iteration-1 ">
-            <div v-for="resource in resources"
+            <div v-for="dashboard in dashboards"
                  class="flex align-items-center justify-content-center  font-bold text-white m-2 border-round"
                  style="max-width: 400px; min-width: 150px">
                 <Card>
                     <template #title>
-                        {{ resource.name }}
+                        {{ dashboard.name }}
                     </template>
                     <template #content>
                      <span class="dashboard_info_text"> Last captured value:</span><br/>
-                    <span class="dashboard_last_value_text">234</span> <span>{{resource.unit}}</span>
+                    <span class="dashboard_last_value_text">{{dashboard.value}}</span> <span>{{dashboard.unit}}</span>
                         <br/>
-                        <span class="dashboard_info_text">Captured on: 22.02.2022</span>
+                        <span class="dashboard_info_text">Captured on: {{ formatDate(dashboard.date) }}</span>
                     </template>
                     <template #footer>
                         <Button icon="pi pi-chart-bar" label="Details"/>
@@ -25,7 +28,7 @@
                 </Card>
             </div>
         </div>
-        <div v-if="resources.length==0">You have no resources inserted yet, go to <a href="./settings">settings</a> and add some!</div>
+        <div v-if="dashboards.length==0 && dashboardLoaded">You have no resources inserted yet, go to <a href="./settings">settings</a> and add some!</div>
 
 
     </template>
