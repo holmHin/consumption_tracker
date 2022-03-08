@@ -1,17 +1,21 @@
+
 import Dashboard from './dashboard/Dashboard.vue'
 import Details from './details/Details.vue'
-import {Vue} from "vue-class-component";
-import Component from 'vue-class-component'
+import { Options, Vue } from 'vue-class-component';
 
-
-@Component
+@Options({components: {Dashboard, Details}})
 export default class Home extends Vue{
-
-
+    selectedDetailResourceId = 0
 
     showDetailsOfResource(resourceid:number){
-        alert("Hi");
+        this.selectedDetailResourceId = resourceid;
+        const details:any = this.$refs.Details;
+        details.loadDetailsForResource(resourceid);
+
+
     }
+
+
 
 
 

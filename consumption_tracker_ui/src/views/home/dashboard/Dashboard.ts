@@ -1,7 +1,7 @@
 import {Vue} from "vue-class-component";
 import {ResourceType} from "@/models/ResourceType";
 import {DashboardService} from "@/service/DashboardService";
-import moment from "moment";
+import moment from "moment/moment";
 
 export default class Dashboard extends Vue {
 
@@ -26,7 +26,7 @@ export default class Dashboard extends Vue {
     }
 
     showDetailsOfResource(resourceId:number){
-        this.$emit("showDetailsOfResource", resourceId)
+       this.$emit("showDetailsOfResource", resourceId)
     }
 
 }

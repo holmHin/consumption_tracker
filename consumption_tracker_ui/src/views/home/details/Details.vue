@@ -1,7 +1,7 @@
 <template src="./Details.html">
 </template>
 
-<script>
+<script type="ts" src="./Details.ts">
 
 </script>
 

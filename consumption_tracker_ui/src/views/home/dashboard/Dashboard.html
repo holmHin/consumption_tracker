@@ -10,7 +10,7 @@
         animation-iteration-1 ">
             <div v-for="dashboard in dashboards"
                  class="flex align-items-center justify-content-center  font-bold text-white m-2 border-round"
-                 style="max-width: 400px; min-width: 150px">
+                 style="max-width: 400px; min-width: 150px" >
                 <Card>
                     <template #title>
                         {{ dashboard.name }}
@@ -22,7 +22,7 @@
                         <span class="dashboard_info_text">Captured on: {{ formatDate(dashboard.date) }}</span>
                     </template>
                     <template #footer>
-                        <Button @click="showDetailsOfResource" icon="pi pi-chart-bar" label="Details"/>
+                        <Button v-if="dashboard.id>0" @click="showDetailsOfResource(dashboard.id)" icon="pi pi-chart-bar" label="Details"/>
 
                     </template>
                 </Card>

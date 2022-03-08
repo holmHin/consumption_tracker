@@ -1,16 +1,7 @@
-
-<script type="ts">
-
-import Component from "vue-class-component";
-
-@Component
-export default class home {
-
-}
-
+<script type="ts" src="./home.ts">
 </script>
 <template>
-  <Dashboard /><br/>
-  <Details />
+  <Dashboard @showDetailsOfResource="showDetailsOfResource"/><br/>
+  <Details ref="Details" :selectedResourceId="selectedDetailResourceId"/>
 </template>
 <style lang="scss" src="./home.scss"></style>
