@@ -2,6 +2,6 @@
 </script>
 <template>
   <Dashboard @showDetailsOfResource="showDetailsOfResource"/><br/>
-  <Details ref="Details" :selectedResourceId="selectedDetailResourceId"/>
+  <Details v-if="showDetails" ref="Details"/>
 </template>
 <style lang="scss" src="./home.scss"></style>

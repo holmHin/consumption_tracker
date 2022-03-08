@@ -21,4 +21,10 @@ export class ConsuptionValueService{
 
     }
 
+    public async getAllEntriesOfResource(resourceId:number):Promise<[]>{
+        const url= process.env.VUE_APP_BACKEND+"api/consumptions/byResource/"+resourceId;
+        const response = await axios.get(url);
+        return response.data;
+    }
+
 }

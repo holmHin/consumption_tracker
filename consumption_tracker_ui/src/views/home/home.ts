@@ -2,18 +2,20 @@
 import Dashboard from './dashboard/Dashboard.vue'
 import Details from './details/Details.vue'
 import { Options, Vue } from 'vue-class-component';
+import {ConsuptionValueService} from "@/service/ConsuptionValueService";
 
 @Options({components: {Dashboard, Details}})
 export default class Home extends Vue{
-    selectedDetailResourceId = 0
 
-    showDetailsOfResource(resourceid:number){
-        this.selectedDetailResourceId = resourceid;
+    showDetails = true;
+
+    showDetailsOfResource(dashboard:any){
+        this.showDetails = true;
         const details:any = this.$refs.Details;
-        details.loadDetailsForResource(resourceid);
-
+        details.loadDetailsForResource(dashboard);
 
     }
+
 
 
 

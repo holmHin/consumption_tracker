@@ -18,6 +18,8 @@ import Dialog from 'primevue/dialog';
 import InputText from 'primevue/inputtext';
 import InputSwitch from 'primevue/inputswitch';
 import ProgressBar from 'primevue/progressbar';
+import ProgressSpinner from 'primevue/progressspinner';
+import Chart from 'primevue/chart';
 
 
 
@@ -41,6 +43,9 @@ app.component("Dialog", Dialog);
 app.component("InputText", InputText);
 app.component("InputSwitch", InputSwitch);
 app.component("ProgressBar", ProgressBar);
+app.component("ProgressSpinner", ProgressSpinner);
+app.component("Chart", Chart);
+
 
 
 app.mount("#app");

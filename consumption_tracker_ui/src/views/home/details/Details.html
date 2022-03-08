@@ -1,8 +1,25 @@
 <Card>
     <template #title>
-        Details
+        {{dashboardName}}
     </template>
     <template #content>
-        {{selectedResourceId}}
+        <div v-if="loadingDetails" style="max-width: 400px; min-width: 150px">
+            <ProgressSpinner/>
+        </div>
+        <div class="flex-wrap-reverse md:flex-wrap fadein animation-duration-1000
+        animation-iteration-1 ">
+        <div v-if="showDetails" style="min-width: 300px; max-width: 600px">
+                <Chart v-if="!loadingDetails" type="line" :data="resourceDate" :options="basicOptions"/>
+        </div>
+            <div>
+                <DataTable :value="loadedConsumptions" responsiveLayout="scroll" class="p-datatable-sm" >
+                    <Column field="id" header="id" :sortable="true"></Column>
+                    <Column field="date" header="Capture Date" :sortable="true"></Column>
+                    <Column field="value" header="Value" :sortable="true"></Column>
+                    <Column field="created" header="Record Date" :sortable="true"></Column>
+                </DataTable>
+            </div>
+        </div>
+
     </template>
 </Card>

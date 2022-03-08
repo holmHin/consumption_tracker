@@ -22,7 +22,7 @@
                         <span class="dashboard_info_text">Captured on: {{ formatDate(dashboard.date) }}</span>
                     </template>
                     <template #footer>
-                        <Button v-if="dashboard.id>0" @click="showDetailsOfResource(dashboard.id)" icon="pi pi-chart-bar" label="Details"/>
+                        <Button v-if="dashboard.id>0" @click="showDetailsOfResource(dashboard)" icon="pi pi-chart-bar" label="Details"/>
 
                     </template>
                 </Card>
